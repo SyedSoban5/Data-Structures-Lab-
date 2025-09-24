@@ -8,7 +8,7 @@ This repository contains all lab tasks, starter code, assignments, and additiona
 
 ## 🧑‍🏫 **Instructor**
 
-**Course Instructor:** *\Syed Shayan Ali Shah*
+**Course Instructor:** *Syed Shayan Ali Shah*
 **Course Duration:** 16 September – 15 January
 **Lecture Days:** **Thursday & Friday** (Weekly)
 **Programming Language:** **C++**
