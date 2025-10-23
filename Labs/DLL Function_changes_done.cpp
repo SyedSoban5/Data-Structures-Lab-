@@ -218,20 +218,16 @@ public:
 	*	Run this function you will see the content of more then one node.
 	*	Task 4: Fix this.
 	*/
-	void DisplayNode(Node* node) {
-		Node* temp = node;
+	void DisplayNode(Node* node) { //
 		cout << "\n------------------------------------------------------\n";
 		cout << "     Prev Address        |   Data   |     Next Address |   Node Address\n";
 		cout << "------------------------------------------------------\n";
 
-		while (temp != nullptr) {
-			cout << setw(20) << temp->prev   // shows prev pointer address
-				<< " | " << setw(7) << temp->data   // data field
-				<< " | " << setw(18) << temp->next  // shows next pointer address
-				<< " | " << setw(20) << temp
+			cout << setw(20) << node->prev   // shows prev pointer address
+				<< " | " << setw(7) << node->data   // data field
+				<< " | " << setw(18) << node->next  // shows next pointer address
+				<< " | " << setw(20) << node
 				<< endl;
-			temp = temp->next;
-		}
 		cout << "------------------------------------------------------\n";
 	}
 	void search(int value)
@@ -274,21 +270,6 @@ public:
 
 int main()
 {
-	DLL objDLL;
-
-	objDLL.insertAtBegin(1);
-	objDLL.insertAtBegin(2);
-	objDLL.insertAtBegin(3);
-	objDLL.insertAtBegin(4);
-	//objDLL.insertAtPos(5 , 5);
-	objDLL.Display();
-	objDLL.deleteFB();
-	objDLL.Display();
-	objDLL.deleteFB();
-	objDLL.Display();
-	
-	
-	
 	/*
 	* You need to complete the four task today.
 	*
@@ -299,6 +280,25 @@ int main()
 
 	//Delete the element from the begining, call the function to Solve Task 3
 
+	DLL objDLL;
+
+	objDLL.insertAtBegin(1);
+	objDLL.insertAtBegin(2);
+	objDLL.insertAtBegin(3);
+	objDLL.insertAtBegin(4);
+	objDLL.insertAtPos(5 , 5);
+	objDLL.Display();
+	objDLL.deleteFB();
+	objDLL.Display();
+	objDLL.deleteFB();
+	objDLL.Display();
+
+	objDLL.search(3);
+	
+	
+	
+	
+	
 
 
 
