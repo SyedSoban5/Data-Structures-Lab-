@@ -216,9 +216,9 @@ public:
 	/*DisplayNode()
 	*	The purpose of this function to display the content of the single node.
 	*	Run this function you will see the content of more then one node.
-	*	Task 4: Fix this.
+	*	Task 4: Fix this. Done
 	*/
-	void DisplayNode(Node* node) { //
+	void DisplayNode(Node* node) { //Task 4 Done
 		cout << "\n------------------------------------------------------\n";
 		cout << "     Prev Address        |   Data   |     Next Address |   Node Address\n";
 		cout << "------------------------------------------------------\n";
