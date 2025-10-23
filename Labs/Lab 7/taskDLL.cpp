@@ -40,7 +40,18 @@ public:
 	}
 
 	//Task 1: Create a destructor
-
+	~DLL()
+{
+	Node* current = head;
+	while(current !=nullptr)
+		{
+			Node *nextnode = current->next;
+			delete current;
+			current = nextNode;
+		}
+	head = nullptr;
+	tail = nullptr;
+}
 
 
 	/*
@@ -143,6 +154,13 @@ public:
 			current = current->next;
 
 		}
+		//Task2 Done:
+		if(current->next == nullptr)
+		{
+			current->next = newNode;
+			newNode->prev = current;
+			return;
+		}
 
 		cout << "Traversed: " << current << endl;
 
@@ -152,7 +170,7 @@ public:
 		current->next = newNode;
 
 
-		/*Task 2
+		/*Task 2 //Done;
 		* Add four items in the linked list
 		* And try to add the 5th Item in the linked List.
 		* Do you see all the 5 element?
@@ -183,6 +201,7 @@ public:
 		{
 			Node* temp = head;
 			head = head->next;
+			head->prev = nullptr;
 			delete temp;
 
 			/*Task 3:
@@ -191,6 +210,7 @@ public:
 			* Can you see the problem with the head pointing to the new node?
 			* Fix the code segement if you see the problem
 			*/
+			//Done at line 196
 
 		}
 	}
@@ -255,6 +275,9 @@ public:
 
 int main()
 {
+	DLL objDLL;
+
+	objlist.
 	/*
 	* You need to complete the four task today.
 	*
@@ -264,6 +287,7 @@ int main()
 
 
 	//Delete the element from the begining, call the function to Solve Task 3
+
 
 
 
