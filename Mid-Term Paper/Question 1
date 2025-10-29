@@ -1,0 +1,217 @@
+#include <iostream>
+#include <iomanip> 
+using namespace std;
+
+class Node
+{
+public:
+    int patientID;
+    Node* next;
+    Node* prev;
+
+    Node(int id)
+    {
+        patientID = id;
+        next = nullptr;
+        prev = nullptr;
+    }
+};
+
+class ERQueue
+{
+public:
+    Node* head;
+    Node* tail;
+
+    ERQueue()
+    {
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    ~ERQueue()
+    {
+        Node* temp = head;
+        while (temp != nullptr)
+        {
+            Node* nextNode = temp->next;
+            delete temp;
+            temp = nextNode;
+        }
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void insertAtBeginning(int id)
+    {
+        Node* newNode = new Node(id);
+
+        if (head == nullptr)
+        {
+            head = tail = newNode;
+        }
+        else
+        {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
+
+    void insertAtEnd(int id)
+    {
+        Node* newNode = new Node(id);
+
+        if (head == nullptr)
+        {
+            head = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
+
+    void insertAtPosition(int id, int position)
+    {
+        Node* newNode = new Node(id);
+
+        if (position == 1 || head == nullptr)
+        {
+            insertAtBeginning(id);
+            return;
+        }
+
+        Node* temp = head;
+        int count = 1;
+
+        while (temp != nullptr && count < position - 1)
+        {
+            temp = temp->next;
+            count++;
+        }
+
+        if (temp == nullptr || temp->next == nullptr)
+        {
+            insertAtEnd(id);
+            return;
+        }
+
+        newNode->next = temp->next;
+        newNode->prev = temp;
+        temp->next->prev = newNode;
+        temp->next = newNode;
+    }
+
+    void deleteFromBeginning()
+    {
+        if (head == nullptr)
+        {
+            cout << "No patient to remove." << endl;
+            return;
+        }
+
+        if (head == tail)
+        {
+            delete head;
+            head = nullptr;
+            tail = nullptr;
+        }
+        else
+        {
+            Node* temp = head;
+            head = head->next;
+            head->prev = nullptr;
+            delete temp;
+        }
+    }
+
+    //Note: Diplay function idea is from Sir repository.
+    void Display()
+    {
+        if (head == nullptr)
+        {
+            cout << "\nQueue is empty.\n";
+            return;
+        }
+
+        Node* temp = head;
+        cout << "\n------------------------------------------------------\n";
+        cout << "     Prev Address        |   Data   |   Next Address\n";
+        cout << "------------------------------------------------------\n";
+
+        while (temp != nullptr)
+        {
+            cout << setw(20) << temp->prev
+                 << " | " << setw(7) << temp->patientID
+                 << " | " << setw(15) << temp->next
+                 << endl;
+            temp = temp->next;
+        }
+        cout << "------------------------------------------------------\n";
+        cout << "Head: " << head << "   Tail: " << tail << endl;
+    }
+};
+
+int main()
+{
+    ERQueue er;
+    int choice, id, pos;
+
+    do
+    {
+        cout << "========== EMERGENCY ROOM MENU =========="<<endl;
+        cout << "1. Insert at Beginning. Critical Patient"<<endl;
+        cout << "2. Insert at End. Normal Patient"<<endl;
+        cout << "3. Insert at Position"<<endl;
+        cout << "4. Delete from Beginning"<<endl;
+        cout << "5. Display Queue"<<endl;
+        cout << "6. Exit"<<endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter Patient ID: ";
+            cin >> id;
+            er.insertAtBeginning(id);
+            break;
+
+        case 2:
+            cout << "Enter Patient ID: "<<endl;
+            cin >> id;
+            er.insertAtEnd(id);
+            break;
+
+        case 3:
+            cout << "Enter Patient ID: "<<endl;
+            cin >> id;
+            cout << "Enter Position: "<<endl;
+            cin >> pos;
+            er.insertAtPosition(id, pos);
+            break;
+
+        case 4:
+            er.deleteFromBeginning();
+            break;
+
+        case 5:
+            er.Display();
+            break;
+
+        case 6:
+            cout << "Exiting program..." << endl;
+            break;
+
+        default:
+            cout << "Invalid choice!" << endl;
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
