@@ -1,0 +1,56 @@
+Enrollment Year: 2017
+----------------------------
+202309  Shah  3.45
+202317  Hussain  3.45
+Average CGPA: 3.45
+
+Enrollment Year: 2018
+----------------------------
+202304  Malik  3.75
+202315  Iqbal  3.75
+202324  Siddiqui  3.80
+Average CGPA: 3.77
+
+Enrollment Year: 2019
+----------------------------
+202302  Raza  3.40
+202307  Raza  3.60
+202312  Noor  3.90
+202319  Akram  3.60
+Average CGPA: 3.62
+
+Enrollment Year: 2020
+----------------------------
+202301  Khan  3.85
+202306  Khan  2.95
+202313  Ahmed  3.65
+202320  Raza  3.25
+Average CGPA: 3.43
+
+Enrollment Year: 2021
+----------------------------
+202305  Ahmed  3.20
+202311  Khan  3.55
+202318  Fatima  3.30
+202325  Farooq  3.00
+Average CGPA: 3.26
+
+Enrollment Year: 2022
+----------------------------
+202303  Ali  3.10
+202314  Ali  3.20
+202321  Iqbal  2.90
+Average CGPA: 3.07
+
+Enrollment Year: 2023
+----------------------------
+202308  Siddiq  3.00
+202316  Yousaf  3.10
+202323  Rahman  2.75
+Average CGPA: 2.95
+
+Enrollment Year: 2024
+----------------------------
+202310  Ullah  2.80
+202322  Khan  3.10
+Average CGPA: 2.95
